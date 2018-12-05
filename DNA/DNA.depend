@@ -18,33 +18,38 @@
 	"Sequence.h"
 	<iostream>
 
-1543963034 source:c:\users\abdo\downloads\fci\oop\dna\main.cpp
+1544044809 source:c:\users\abdo\downloads\fci\oop\dna\main.cpp
 	<iostream>
 	"Sequence.h"
 	"DNA.h"
 
-1543964652 c:\users\abdo\downloads\fci\oop\dna\sequence.h
+1544044072 c:\users\abdo\downloads\fci\oop\dna\sequence.h
 	<bits/stdc++.h>
 
-1543964482 c:\users\abdo\downloads\fci\oop\dna\dna.h
-	"Sequence.h"
+1544034985 c:\users\abdo\downloads\fci\oop\dna\dna.h
 	"RNA.h"
 	<bits/stdc++.h>
 
-1543961026 c:\users\abdo\downloads\fci\oop\dna\rna.h
-	"Sequence.h"
+1544034985 c:\users\abdo\downloads\fci\oop\dna\rna.h
 	"Protein.h"
+	"DNA.h"
 	<bits/stdc++.h>
 
-1543961165 c:\users\abdo\downloads\fci\oop\dna\protein.h
+1544034985 c:\users\abdo\downloads\fci\oop\dna\protein.h
 	"Sequence.h"
 	<bits/stdc++.h>
 
-1543963019 source:c:\users\abdo\downloads\fci\oop\dna\dna.cpp
+1544032255 source:c:\users\abdo\downloads\fci\oop\dna\dna.cpp
 	"DNA.h"
 	"Sequence.h"
 	<iostream>
 
 1543963055 source:c:\users\abdo\downloads\fci\oop\dna\protein.cpp
 	"Protein.h"
+
+1544032268 source:c:\users\abdo\downloads\fci\oop\dna\rna.cpp
+	"RNA.h"
+
+1544036336 source:c:\users\abdo\downloads\fci\oop\dna\sequence.cpp
+	"Sequence.h"
 

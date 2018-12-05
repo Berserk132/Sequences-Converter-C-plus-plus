@@ -5,8 +5,7 @@ using namespace std;
 
 DNA::DNA()
 {
-    //ctor
-
+    type=promoter;
 }
 
 DNA :: DNA(char * s, DNA_Type atype)
@@ -41,21 +40,19 @@ void DNA ::  BuildComplementaryStrand()
     }
     complementary_strand->type=type;
 }
+char* DNA::getComplementalStrand(){
+    return complementary_strand->seq;
+}
 RNA DNA :: ConvertToRNA(){
     BuildComplementaryStrand();
     RNA tmp;
-    tmp.seq=new char [strlen(complementary_strand->seq)+1];
-    strcpy(tmp.seq,complementary_strand->seq);
-    tmp.type=1;
-    for(int i=0;i<strlen(tmp.seq);++i){
-        if(tmp.seq[i]=='T') tmp.seq[i]=='U';
+    tmp.setSeq(complementary_strand->seq);
+    for(int i=0;i<strlen(complementary_strand->seq);++i){
+        if(tmp.getElement(i)=='T') tmp.setElement('U',i);
     }
     return  tmp;
 }
 
 DNA::~DNA()
 {
-    //dtor
-    delete [] seq;
-    delete [] complementary_strand;
 }

@@ -1,12 +1,13 @@
 #ifndef RNA_H
 #define RNA_H
-#include "Sequence.h"
 #include "Protein.h"
+#include "DNA.h"
 #include <bits/stdc++.h>
 
+class DNA;
 enum RNA_Type {mRNA, pre_mRNA, mRNA_exon, mRNA_intron};
 class Protein;
-class DNA;
+
 
 
 class RNA : public Sequence
@@ -14,6 +15,7 @@ class RNA : public Sequence
     private:
         RNA_Type type;
   	public:
+
  	 	// constructors and destructor
         RNA();
         RNA(char * seq, RNA_Type atype);

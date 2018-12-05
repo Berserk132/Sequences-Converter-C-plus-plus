@@ -1,10 +1,9 @@
 #ifndef DNA_H
 #define DNA_H
-#include "Sequence.h"
 #include"RNA.h"
 #include <bits/stdc++.h>
 
-
+class RNA;
 enum DNA_Type{promoter, motif, tail, noncoding};
 
 class DNA : public Sequence
@@ -34,6 +33,7 @@ class DNA : public Sequence
         // the endIndex), convert each A to T, each T to A, each C to G, and
         // each G to C. Then reverse the resulting sequence.
         void BuildComplementaryStrand();
+        char* getComplementalStrand();
   };
 
 #endif // DNA_H

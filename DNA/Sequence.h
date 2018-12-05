@@ -1,27 +1,25 @@
 #ifndef SEQUENCE_H
 #define SEQUENCE_H
 #include<bits/stdc++.h>
-/*
-std::map<std::string,char>mp;
-std::map<char,std::string>reversed;
-freopen("Codons",'r',stdin);
-std::string sequenc;
-char equivelent;
-for(int i=0;i<64;++i){
-    cin>>sequenc>>equivelent;
-    mp[sequenc]=equivelent;
-    reversed[equivelent]=sequenc;
-}*/
+using namespace std;
+
+extern map<string,char>aminoAcid;           //extern to tell the compiler that aminoAcid exist somewhere else
+extern map<char,string>reversedAcid;        // so multiple definition error wont appear
+
 class Sequence
 {
-  	public:
+  	protected:
         char * seq;
     public:
  	 	// constructors and destructor
         Sequence();
         Sequence(int length);
         Sequence(Sequence& rhs);
+        void setSeq(char seq[]);
+        char getElement(int idx);
+        void setElement(char element,int idx);
         virtual ~Sequence();
+        friend void loadCodon();
  	 	// pure virtual function that should be overridden because every
         // type of sequence has its own details to be printed
        // virtual void Print()= 0;

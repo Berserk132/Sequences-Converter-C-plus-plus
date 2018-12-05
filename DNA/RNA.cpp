@@ -15,30 +15,30 @@ RNA::RNA(RNA& rhs):Sequence(rhs){
 }
 Protein RNA::ConvertToProtein(){
     Protein tmp;
-    char* tmpChar = new char [strlen(seq)/3+1];
-    std::string codon;
+    char* tmpChar = new char [(strlen(seq)/3)+1];
+    char codon[4];
     for(int i=0,j=0;i<strlen(seq);i+=3,j++){
-        codon+=seq[i]+seq[i+1]+seq[i+2];
-        tmpChar[j]=mp[codon];
-        if(tmpChar==' ') break;
-        codon.clear();
+        codon[1]=seq[i],codon[1]=seq[i+1],codon[1]=seq[i+2];
+        tmpChar[j]=aminoAcid[codon];
+        if(tmpChar[j]==' ') break;
     }
-    strcpy(tmp.seq,tmpChar);
-    tmp.type=3;
+    tmp.setSeq(tmpChar);
     return tmp;
 }
 DNA RNA::ConvertToDNA(){
+    RNA temp;
     DNA tmp;
-    tmp.seq=new char[strlen(seq)+1];
-    strcpy(tmp.seq,seq);
+    temp.seq=new char[strlen(seq)+1];
+    strcpy(temp.seq,seq);
     for(int i=0;i<strlen(seq);++i){
-        if(tmp.seq[i]=='U') tmp.seq[i]='T';
+        if(temp.seq[i]=='U') temp.seq[i]='T';
     }
+    tmp.setSeq(temp.seq);
     tmp.BuildComplementaryStrand();
-    strcpy(tmp.seq,tmp.complementary_strand->seq);
+    tmp.setSeq(tmp.getComplementalStrand());
     return tmp;
 
 }
-RNA::~RNA()
+RNA::~RNA(){
     //dtor
 }
