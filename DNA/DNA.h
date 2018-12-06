@@ -10,18 +10,20 @@ class DNA : public Sequence
 {
   	private:
         DNA_Type type;
-        DNA * complementary_strand;
+        char* complementary_strand;
         int startIndex;
         int endIndex;
     public:
  	 	// constructors and destructor
         DNA();
         DNA(char * seq, DNA_Type atype);
+        DNA(DNA* rhs);
         DNA(DNA& rhs);
         char* getDNA();
         ~DNA();
+        void operator=(DNA rhs);
  	 	// function printing DNA sequence information to user
-        //void Print();
+        void Print();
         //void printDNA();
         // function to convert the DNA sequence to RNA sequence
         // It starts by building the complementary_strand of the current

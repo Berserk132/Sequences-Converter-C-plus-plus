@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Sequence.h"
 #include "DNA.h"
+#include "RNA.h"
+#include "Protein.h"
 using namespace std;
 void loadCodon(){
     string sequenc;
@@ -26,8 +28,21 @@ char* Align(Sequence * s1, Sequence * s2){
 
 int main()
 {
-    DNA f1("ATGCTGCA", motif);
-
+    loadCodon();
+    cout<<aminoAcid["AAA"]<<endl;
+    DNA d1("TTACGCCAT",tail);
+    DNA d2;
+    d1.BuildComplementaryStrand();
+    cout<<d1.getComplementalStrand()<<endl;
+    RNA r1;
+    r1=d1.ConvertToRNA();
+    d1.Print();
+    r1.Print();
+    cout<<"5od balk\n";
+    d2=(*r1.ConvertToDNA());
+    d2.Print();
+    Protein p1("AAA");
+    p1.Print();
 
     return 0;
 }

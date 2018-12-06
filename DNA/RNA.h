@@ -5,8 +5,8 @@
 #include <bits/stdc++.h>
 
 class DNA;
-enum RNA_Type {mRNA, pre_mRNA, mRNA_exon, mRNA_intron};
 class Protein;
+enum RNA_Type {mRNA, pre_mRNA, mRNA_exon, mRNA_intron};
 
 
 
@@ -22,12 +22,12 @@ class RNA : public Sequence
         RNA(RNA& rhs);
         ~RNA();
  	 	// function to be overridden to print all the RNA information
-        //void Print();
+        void Print();
  	 	// function to convert the RNA sequence into protein sequence
         // using the codons Table object
-        Protein ConvertToProtein();
+        Protein* ConvertToProtein();
  	 	// function to convert the RNA sequence back to DNA
-        DNA ConvertToDNA();
+        DNA* ConvertToDNA();
 };
 
 #endif // RNA_H

@@ -13,14 +13,15 @@ Sequence :: Sequence(int length)
         cin>>seq[i];
     }
 }
+
 Sequence :: Sequence(Sequence& rhs)
 {
     seq=new char [strlen(rhs.seq)+1];
     strcpy(seq,rhs.seq);
 }
-void Sequence ::setSeq(char seq[]){
-    this->seq=new char [ strlen(seq)+1];
-    strcpy(this->seq,seq);
+void Sequence ::setSeq(char seq2[]){
+    this->seq=new char [ strlen(seq2)+1];
+    strcpy(this->seq,seq2);
 }
 char Sequence::getElement(int idx){
     return seq[idx];

@@ -19,7 +19,7 @@ class Sequence
         char getElement(int idx);
         void setElement(char element,int idx);
         virtual ~Sequence();
-        friend void loadCodon();
+        static void loadCodon();
  	 	// pure virtual function that should be overridden because every
         // type of sequence has its own details to be printed
        // virtual void Print()= 0;

@@ -14,6 +14,7 @@ class Protein : public Sequence
  	 	Protein();
  	 	Protein(char * p);
  	 	~Protein();
+ 	 	void Print();
  	 	// return an array of DNA sequences that can possibly
                 // generate that protein sequence
            //DNA* GetDNAStrandsEncodingMe(const DNA & bigDNA);
