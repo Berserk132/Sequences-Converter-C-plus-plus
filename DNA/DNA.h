@@ -18,7 +18,7 @@ class DNA : public Sequence
         DNA();
         DNA(char * seq, DNA_Type atype);
         DNA(DNA* rhs);
-        DNA(DNA& rhs);
+        DNA(const DNA& rhs);
         char* getDNA();
         ~DNA();
         void operator=(DNA rhs);

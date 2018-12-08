@@ -13,8 +13,11 @@ class Protein : public Sequence
  	 	// constructors and destructor
  	 	Protein();
  	 	Protein(char * p);
+ 	 	Protein(Protein* p);
+ 	 	Protein(const Protein& p);
  	 	~Protein();
  	 	void Print();
+ 	 	void operator=(Protein rhs);
  	 	// return an array of DNA sequences that can possibly
                 // generate that protein sequence
            //DNA* GetDNAStrandsEncodingMe(const DNA & bigDNA);

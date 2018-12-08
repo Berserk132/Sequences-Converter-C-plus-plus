@@ -9,6 +9,7 @@ DNA::DNA()
 }
 
 DNA::DNA(DNA* rhs){
+    seq=new char[strlen(rhs->seq)+1];
     seq=rhs->seq;
     type=rhs->type;
 }
@@ -20,8 +21,10 @@ DNA :: DNA(char * s, DNA_Type atype)
     type = atype;
 }
 
-DNA :: DNA(DNA& rhs):Sequence(rhs)
+DNA :: DNA(const DNA& rhs)
 {
+    seq=new char[strlen(rhs.seq)+1];
+    strcpy(seq,rhs.seq);
     type=rhs.type;
 
 }
@@ -30,8 +33,11 @@ char* DNA :: getDNA()
 {
     return seq;
 }
+
 void DNA::Print(){
-    cout<<seq<<endl;
+    for(int i=0 ; i<strlen(seq) ;i++)
+        cout<<seq[i];
+    cout<<endl;
 }
 
 void DNA ::  BuildComplementaryStrand()
@@ -46,7 +52,7 @@ void DNA ::  BuildComplementaryStrand()
         else if(seq[i]=='C') complementary_strand[j]='G';
         else if(seq[i]=='G') complementary_strand[j]='C';
     }
-    complementary_strand;
+    //complementary_strand;
 }
 
 char* DNA::getComplementalStrand(){
@@ -58,7 +64,7 @@ void DNA::operator=(DNA rhs){
 }
 RNA DNA :: ConvertToRNA(){
     BuildComplementaryStrand();
-    RNA tmp;
+    RNA tmp ;
     tmp.setSeq(complementary_strand);
     for(int i=0;i<strlen(complementary_strand);++i){
         if(tmp.getElement(i)=='T') tmp.setElement('U',i);

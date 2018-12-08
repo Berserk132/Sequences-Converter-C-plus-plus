@@ -34,6 +34,10 @@
 		</Compiler>
 		<Unit filename="DNA.cpp" />
 		<Unit filename="DNA.h" />
+		<Unit filename="Protein.cpp" />
+		<Unit filename="Protein.h" />
+		<Unit filename="RNA.cpp" />
+		<Unit filename="RNA.h" />
 		<Unit filename="Sequence.cpp" />
 		<Unit filename="Sequence.h" />
 		<Unit filename="main.cpp" />

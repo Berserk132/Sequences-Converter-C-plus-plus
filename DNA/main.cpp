@@ -4,16 +4,20 @@
 #include "RNA.h"
 #include "Protein.h"
 using namespace std;
+
 void loadCodon(){
     string sequenc;
     char equivlent;
     freopen("Codons.txt","r",stdin);
     for(int i=0;i<64;++i){
-        cin>>sequenc>>equivlent;
+        cin>>sequenc;
+        cin.get();
+        cin.get(equivlent);
         reversedAcid[equivlent]=sequenc;
         aminoAcid[sequenc]=equivlent;
     }
 }
+
 char* Align(Sequence * s1, Sequence * s2){
     char *lcs=new char[strlen(s1->seq)+1];
     char *lcs2=new char[strlen(s2->seq)+1];
@@ -29,19 +33,21 @@ char* Align(Sequence * s1, Sequence * s2){
 int main()
 {
     loadCodon();
-    cout<<aminoAcid["AAA"]<<endl;
     DNA d1("TTACGCCAT",tail);
     DNA d2;
     d1.BuildComplementaryStrand();
-    cout<<d1.getComplementalStrand()<<endl;
     RNA r1;
-    r1=d1.ConvertToRNA();
+    cout<<"D1 = : ";
     d1.Print();
+    cout<<"R1 = : ";
+    r1=d1.ConvertToRNA();
     r1.Print();
-    cout<<"5od balk\n";
-    d2=(*r1.ConvertToDNA());
+    cout<<"D2 = : ";
+    d2=(r1.ConvertToDNA());
     d2.Print();
-    Protein p1("AAA");
+    Protein p1;
+    cout<<"P1 = ; ";
+    p1=(r1.ConvertToProtein());
     p1.Print();
 
     return 0;
