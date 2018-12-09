@@ -34,7 +34,7 @@ Protein RNA::ConvertToProtein(){
     return tmp;
 }
 
-DNA RNA::ConvertToDNA(){
+DNA RNA::ConvertToDNA()const{
     RNA temp;
     DNA tmp;
     temp.seq=new char[strlen(seq)+1];

@@ -34,6 +34,7 @@ int main()
 {
     loadCodon();
     DNA d1("TTACGCCAT",tail);
+    DNA d4("TACCGTTACGCCATCATT",tail);
     DNA d2;
     d1.BuildComplementaryStrand();
     RNA r1;
@@ -49,6 +50,10 @@ int main()
     cout<<"P1 = ; ";
     p1=(r1.ConvertToProtein());
     p1.Print();
+    DNA d3;
+    d3=p1.GetDNAStrandsEncodingMe(d4);
+    cout<<endl<<endl;
+    d3.Print();
 
     return 0;
 }

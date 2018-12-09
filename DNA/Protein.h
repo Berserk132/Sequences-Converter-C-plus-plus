@@ -1,8 +1,9 @@
 #ifndef PROTEIN_H
 #define PROTEIN_H
 #include "Sequence.h"
+#include "DNA.h"
 #include <bits/stdc++.h>
-
+class DNA;
 enum Protein_Type {Hormon, Enzyme, TF, Cellular_Function};
 
 class Protein : public Sequence
@@ -20,7 +21,7 @@ class Protein : public Sequence
  	 	void operator=(Protein rhs);
  	 	// return an array of DNA sequences that can possibly
                 // generate that protein sequence
-           //DNA* GetDNAStrandsEncodingMe(const DNA & bigDNA);
+        DNA GetDNAStrandsEncodingMe(DNA & bigDNA);
 };
 
 #endif // PROTEIN_H

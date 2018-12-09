@@ -13,6 +13,12 @@ Sequence :: Sequence(int length)
         cin>>seq[i];
     }
 }
+char* Sequence::getSeq()const{
+    return seq;
+}
+int Sequence::getSeqSiz() const{
+    return strlen(seq);
+}
 
 Sequence :: Sequence(Sequence& rhs)
 {
@@ -23,7 +29,10 @@ void Sequence ::setSeq(char seq2[]){
     this->seq=new char [ strlen(seq2)+1];
     strcpy(this->seq,seq2);
 }
-char Sequence::getElement(int idx){
+void Sequence ::setSeqSize(int siz){
+    this->seq=new char [ siz+1];
+}
+char Sequence::getElement(int idx)const{
     return seq[idx];
 }
 void Sequence::setElement(char element,int idx){

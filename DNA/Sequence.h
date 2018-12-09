@@ -16,7 +16,10 @@ class Sequence
         Sequence(int length);
         Sequence(Sequence& rhs);
         void setSeq(char seq[]);
-        char getElement(int idx);
+        void setSeqSize(int siz);
+        char* getSeq()const;
+        int getSeqSiz()const;
+        char getElement(int idx)const;
         void setElement(char element,int idx);
         virtual ~Sequence();
         static void loadCodon();

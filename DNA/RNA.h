@@ -27,7 +27,7 @@ class RNA : public Sequence
         // using the codons Table object
         Protein ConvertToProtein();
  	 	// function to convert the RNA sequence back to DNA
-        DNA ConvertToDNA();
+        DNA ConvertToDNA()const;
 };
 
 #endif // RNA_H
