@@ -8,9 +8,9 @@ extern map<char,string>reversedAcid;        // so multiple definition error wont
 
 class Sequence
 {
-  	protected:
-        char * seq;
+
     public:
+        char * seq;
  	 	// constructors and destructor
         Sequence();
         Sequence(int length);

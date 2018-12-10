@@ -1,0 +1,3 @@
+H:/Sequences-Converter-C-plus-plus-master/DNA/cmake-build-debug/CMakeFiles/DNA.dir
+H:/Sequences-Converter-C-plus-plus-master/DNA/cmake-build-debug/CMakeFiles/edit_cache.dir
+H:/Sequences-Converter-C-plus-plus-master/DNA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -56,3 +56,41 @@
 1544285427 source:c:\users\abdo\downloads\fci\oop\dna\sequence.cpp
 	"Sequence.h"
 
+1544460755 source:h:\sequences-converter-c-plus-plus-master\dna\dna.cpp
+	"DNA.h"
+	"Sequence.h"
+	<bits/stdc++.h>
+
+1544460264 h:\sequences-converter-c-plus-plus-master\dna\dna.h
+	"RNA.h"
+	<bits/stdc++.h>
+
+1544461010 h:\sequences-converter-c-plus-plus-master\dna\rna.h
+	"Protein.h"
+	"DNA.h"
+	<bits/stdc++.h>
+
+1544460932 h:\sequences-converter-c-plus-plus-master\dna\protein.h
+	"Sequence.h"
+	"DNA.h"
+	<bits/stdc++.h>
+
+1544455538 h:\sequences-converter-c-plus-plus-master\dna\sequence.h
+	<bits/stdc++.h>
+
+1544460828 source:h:\sequences-converter-c-plus-plus-master\dna\main.cpp
+	<iostream>
+	"Sequence.h"
+	"DNA.h"
+	"RNA.h"
+	"Protein.h"
+
+1544460990 source:h:\sequences-converter-c-plus-plus-master\dna\protein.cpp
+	"Protein.h"
+
+1544455813 source:h:\sequences-converter-c-plus-plus-master\dna\rna.cpp
+	"RNA.h"
+
+1544361372 source:h:\sequences-converter-c-plus-plus-master\dna\sequence.cpp
+	"Sequence.h"
+

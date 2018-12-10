@@ -36,6 +36,10 @@ class DNA : public Sequence
         // each G to C. Then reverse the resulting sequence.
         void BuildComplementaryStrand();
         char* getComplementalStrand();
+        friend ostream& operator<<(ostream& out, DNA &s);
+        friend istream& operator>>(istream& in, DNA& obj);
+        bool operator!= (DNA& d);
+        DNA operator+(DNA& d);
   };
 
 #endif // DNA_H

@@ -64,6 +64,53 @@ DNA Protein::GetDNAStrandsEncodingMe(DNA & bigDNA){
 
 
 }
+ostream& operator<<(ostream& out, Protein &s)
+{
+    out << "The Protein Sequence: ";
+    for(int i=0 ; i<strlen(s.seq) ;i++)
+    {
+        out<<s.seq[i];
+    }
+    out << endl;
+    //out << "The Sequence Type = ";
+    //out << endl;
+    //out << s(DNA)->type << endl;
+    return out;
+}
+
+istream& operator>>(istream& in, Protein &s)
+{
+
+    in >> s.seq;
+
+    return in;
+}
+
+Protein Protein:: operator+(Protein& d2)
+{
+    Protein tmp;
+    int length2 = strlen(d2.seq);
+    int length1 = strlen(seq);
+    tmp.seq = new char [length1+length2+2];
+    for (int i=0; i<length1; i++)
+    {
+        tmp.seq[i] = seq[i];
+    }
+    for (int i=length1; i<length1+length2; i++)
+    {
+        tmp.seq[i] = d2.seq[i-length1];
+    }
+
+    return tmp;
+}
+
+bool Protein ::  operator!= (Protein& d)
+{
+    if (strcmp(seq,d.seq))
+        return true;
+    else
+        return false;
+}
 Protein::~Protein()
 {
     //dtor

@@ -34,25 +34,28 @@ int main()
 {
     loadCodon();
     DNA d1("TTACGCCAT",tail);
+    DNA d10("TTACGCCAT",tail);
     DNA d4("TACCGTTACGCCATCATT",tail);
     DNA d2;
+    //d2 = d1+ d4;
+    cout << (d1!=d10);
+    cout << endl;
+    //cout << d2;
+    //cin >> d1;
     d1.BuildComplementaryStrand();
     RNA r1;
-    cout<<"D1 = : ";
-    d1.Print();
-    cout<<"R1 = : ";
+    cout << d1;
     r1=d1.ConvertToRNA();
-    r1.Print();
-    cout<<"D2 = : ";
+    cout << r1;
     d2=(r1.ConvertToDNA());
-    d2.Print();
+    cout << d2;
     Protein p1;
-    cout<<"P1 = ; ";
     p1=(r1.ConvertToProtein());
-    p1.Print();
+    cout << p1;
     DNA d3;
     d3=p1.GetDNAStrandsEncodingMe(d4);
-    cout<<endl<<endl;
+    cout<<endl;
+    cout<<"D3 = ; ";
     d3.Print();
 
     return 0;

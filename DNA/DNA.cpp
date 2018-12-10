@@ -1,6 +1,6 @@
 #include "DNA.h"
 #include "Sequence.h"
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 DNA::DNA()
@@ -70,6 +70,51 @@ RNA DNA :: ConvertToRNA(){
         if(tmp.getElement(i)=='T') tmp.setElement('U',i);
     }
     return  tmp;
+}
+ostream& operator<<(ostream& out, DNA &s)
+{
+    out << "The DNA Sequence: ";
+    for(int i=0 ; i<strlen(s.seq) ;i++)
+    {
+        out<<s.seq[i];
+    }
+    out << endl;
+    //out << "The Sequence Type = ";
+    //out << endl;
+    //out << s(DNA)->type << endl;
+    return out;
+}
+
+istream& operator>>(istream& in, DNA& obj)
+{
+    in >> obj.seq;
+    return in;
+}
+
+DNA DNA:: operator+(DNA& d2)
+{
+    DNA tmp;
+    int length2 = strlen(d2.seq);
+    int length1 = strlen(seq);
+    tmp.seq = new char [length1+length2+2];
+    for (int i=0; i<length1; i++)
+    {
+        tmp.seq[i] = seq[i];
+    }
+    for (int i=length1; i<length1+length2; i++)
+    {
+        tmp.seq[i] = d2.seq[i-length1];
+    }
+
+    return tmp;
+}
+
+bool DNA ::  operator!= (DNA& d)
+{
+    if (strcmp(seq,d.seq))
+        return true;
+    else
+        return false;
 }
 
 DNA::~DNA()

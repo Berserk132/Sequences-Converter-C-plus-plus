@@ -28,6 +28,10 @@ class RNA : public Sequence
         Protein ConvertToProtein();
  	 	// function to convert the RNA sequence back to DNA
         DNA ConvertToDNA()const;
+        friend ostream& operator<<(ostream& out, RNA &s);
+        friend istream& operator>>(istream& in, RNA &s);
+        RNA operator+(RNA& d);
+        bool operator!= (RNA& d);
 };
 
 #endif // RNA_H

@@ -23,7 +23,7 @@ void RNA::Print(){
 
 Protein RNA::ConvertToProtein(){
     Protein tmp;
-    char* tmpChar = new char [(strlen(seq)/3)+1];
+    char* tmpChar = new char [strlen(seq)+1];
     char codon[4];
     for(int i=0,j=0;i<strlen(seq);i+=3,j++){
         codon[0]=seq[i],codon[1]=seq[i+1],codon[2]=seq[i+2];
@@ -32,6 +32,54 @@ Protein RNA::ConvertToProtein(){
     }
     tmp.setSeq(tmpChar);
     return tmp;
+}
+
+ostream& operator<<(ostream& out, RNA &s)
+{
+    out << "The RNA Sequence: ";
+    for(int i=0 ; i<strlen(s.seq) ;i++)
+    {
+        out<<s.seq[i];
+    }
+    out << endl;
+    //out << "The Sequence Type = ";
+    //out << endl;
+    //out << s(DNA)->type << endl;
+    return out;
+}
+
+istream& operator>>(istream& in, RNA &s)
+{
+
+    in >> s.seq;
+
+    return in;
+}
+
+RNA RNA:: operator+(RNA& d2)
+{
+    RNA tmp;
+    int length2 = strlen(d2.seq);
+    int length1 = strlen(seq);
+    tmp.seq = new char [length1+length2+2];
+    for (int i=0; i<length1; i++)
+    {
+        tmp.seq[i] = seq[i];
+    }
+    for (int i=length1; i<length1+length2; i++)
+    {
+        tmp.seq[i] = d2.seq[i-length1];
+    }
+
+    return tmp;
+}
+
+bool RNA ::  operator!= (RNA& d)
+{
+    if (strcmp(seq,d.seq))
+        return true;
+    else
+        return false;
 }
 
 DNA RNA::ConvertToDNA()const{

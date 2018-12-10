@@ -22,6 +22,10 @@ class Protein : public Sequence
  	 	// return an array of DNA sequences that can possibly
                 // generate that protein sequence
         DNA GetDNAStrandsEncodingMe(DNA & bigDNA);
+        friend ostream& operator<<(ostream& out, Protein &s);
+        friend istream& operator>>(istream& in, Protein &s);
+        Protein operator+(Protein& d);
+        bool operator!= (Protein& d);
 };
 
 #endif // PROTEIN_H
