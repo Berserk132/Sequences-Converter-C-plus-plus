@@ -1,5 +1,5 @@
 #include "RNA.h"
-
+//#incude "DNA.h"
 RNA::RNA()
 {
     //ctor
