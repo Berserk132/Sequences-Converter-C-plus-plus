@@ -17,11 +17,13 @@ class DNA : public Sequence
  	 	// constructors and destructor
         DNA();
         DNA(char * seq, DNA_Type atype);
+        DNA(char * seq);
         DNA(DNA* rhs);
         DNA(const DNA& rhs);
         DNA(int length);
+
         char* getDNA();
-        ~DNA();
+
         void operator=(DNA rhs);
  	 	// function printing DNA sequence information to user
         void Print();
@@ -31,13 +33,15 @@ class DNA : public Sequence
         // It starts by building the complementary_strand of the current
         // DNA sequence (starting from the startIndex to the endIndex), then,
         // it builds the RNA corresponding to that complementary_strand.
-        RNA ConvertToRNA();
+        RNA ConvertToRNA(int startIndex=0,int endIndex=0);
  	 	// function to build the second strand/pair of DNA sequence
 	    // To build a complementary_strand (starting from the startIndex to
         // the endIndex), convert each A to T, each T to A, each C to G, and
         // each G to C. Then reverse the resulting sequence.
         void BuildComplementaryStrand();
         char* getComplementalStrand();
+
+        ~DNA();
   };
 
 #endif // DNA_H

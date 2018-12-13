@@ -25,6 +25,7 @@ class RNA : public Sequence
  	 	// function to convert the RNA sequence into protein sequence
         // using the codons Table object
         Protein ConvertToProtein();
+
         bool valid(char* chr);
  	 	// function to convert the RNA sequence back to DNA
         DNA ConvertToDNA()const;

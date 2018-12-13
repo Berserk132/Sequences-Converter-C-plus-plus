@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="CodonsTable.cpp" />
+		<Unit filename="CodonsTable.h" />
 		<Unit filename="DNA.cpp" />
 		<Unit filename="DNA.h" />
 		<Unit filename="Protein.cpp" />

@@ -16,9 +16,11 @@ class Protein : public Sequence
  	 	Protein(Protein* p);
  	 	Protein(const Protein& p);
  	 	~Protein();
+
  	 	void Print();
  	 	void operator=(Protein rhs);
         bool valid(char* chr);
+
  	 	// return an array of DNA sequences that can possibly
                 // generate that protein sequence
         DNA GetDNAStrandsEncodingMe(DNA & bigDNA);

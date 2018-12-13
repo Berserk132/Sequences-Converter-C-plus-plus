@@ -3,8 +3,10 @@
 Protein::Protein()
 {
     //ctor
+
 }
 //K N T S I M Q H P R L E D A G V Y C W F
+//validation function for input
 bool Protein::valid(char* ch){
     for(int i=0;i<strlen(ch);++i)
         if((char)ch[i]=='K'||(char)ch[i]=='N'||(char)ch[i]=='T'||(char)ch[i]=='S'||(char)ch[i]=='I'||(char)ch[i]=='M'||(char)ch[i]=='Q'||
@@ -19,7 +21,10 @@ bool Protein::valid(char* ch){
         }
     return 1;
 }
-Protein ::Protein(char * p){
+// Constructor to create a new Protein
+
+Protein ::Protein(char * p)
+{
     valid(p);
     seq=new char [strlen(p)+1];
     strcpy(seq,p);
@@ -30,6 +35,7 @@ Protein ::Protein(Protein * p){
     strcpy(seq,p->seq);
     type=p->type;
 }
+// copy constructor to create a protein sequence equal to another one
 
 Protein ::Protein(const Protein& p){
     valid(p.seq);
@@ -44,26 +50,27 @@ void Protein::Print(){
         cout<<seq[i];
     cout<<endl;
 }
+// equal operator to make protein object equals another protein object
 
 void Protein::operator=(Protein rhs){
-    valid(rhs.seq);
     seq=rhs.seq;
     type=rhs.type;
 }
+// Function that Return a DNA after makes sure that we can convert that DNA to Protein
+
 DNA Protein::GetDNAStrandsEncodingMe(DNA & bigDNA){
-    bigDNA.valid(bigDNA.getSeq());
-    DNA tmp;
-    RNA trans(bigDNA.ConvertToRNA());
+    DNA tmp(strlen(this->seq)*3+1);
+    RNA trans(bigDNA.ConvertToRNA(-1,-1));//make RNA to access the amino acid table
     bool b=0;
     char codon[4];
-    tmp.setSeqSize(strlen(this->seq)*3+1);
     for(int i=0;i<trans.getSeqSiz()-strlen(seq)*3-1;++i){
             b=1;
-        for(int j=i,k=0;j<i+strlen(seq)*3;j+=3,k++){
+            int j=i;
+        for(int k=0;j<i+strlen(seq)*3;j+=3,k++){
             codon[0]=trans.getElement(j);
             codon[1]=trans.getElement(j+1);
             codon[2]=trans.getElement(j+2);
-            if(aminoAcid[codon]!=seq[k]){
+            if(aminoAcid[codon]!=seq[k]){  //search for the Codon of key
                 b=0;
                 break;
             }
@@ -71,31 +78,22 @@ DNA Protein::GetDNAStrandsEncodingMe(DNA & bigDNA){
             tmp.setElement(codon[1],j+1-i);
             tmp.setElement(codon[2],j+2-i);
         }
-        if(b) break;
+        if(b){
+            break;
+        }
     }
+    tmp.setElement('\0',strlen(this->seq)*3);//end of character array
     if(!b) cout<<"can't make this protein from this DNA ";
     else {
         for(int i=0;i<tmp.getSeqSiz();++i){
             if(tmp.getElement(i)=='U') tmp.setElement('T',i);
         }
     }
-    int flag=0;
-    for(int i=0;i<tmp.getSeqSiz();++i){
-        if((int)tmp.getElement(i)==-1) flag=i;;
-    }
-    cout<<endl;
-    char last[flag];
-    for(int i=0;i<flag-1;++i){
-        last[i]=tmp.getElement(i);
-        if(tmp.getElement(i)<'A'||tmp.getElement(i)>'Z') break;
-    }
-    tmp.setSeq(last);
-    tmp.BuildComplementaryStrand();
-    tmp.setSeq(tmp.getComplementalStrand());
     return tmp;
 
 
 }
+// plus operator to add a protein sequence to another protein sequence
 
 Protein Protein:: operator+(Protein& d2)
 {
@@ -112,7 +110,6 @@ Protein Protein:: operator+(Protein& d2)
     {
         tmp.seq[i] = d2.seq[i-length1];
     }
-
     return tmp;
 }
 
